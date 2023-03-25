@@ -1,0 +1,2341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    tools:context=".WeatherActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/appback1">
+
+
+        <Button
+            android:id="@+id/btnGet"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/backgroundweather"
+            android:onClick="ShowWeatherDetails"
+            android:text="Show"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/backgroundweather"
+            android:onClick="SaveFiles"
+            android:text="Export"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+
+        <LinearLayout
+            android:id="@+id/id_forecastLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSave"
+            android:background="@color/backgroundweather"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_state1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:paddingRight="5dp"
+                    android:text="Gaya, In"
+                    android:textAllCaps="true"
+                    android:textColor="#DFB63C"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_state1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Today"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/id_forecastIcon6"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/id_state1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/w03d"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_degree1"
+                    android:layout_width="210dp"
+                    android:layout_height="152dp"
+                    android:layout_alignStart="@+id/id_forecastIcon6"
+                    android:layout_alignTop="@+id/id_forecastIcon6"
+                    android:layout_alignEnd="@+id/id_forecastIcon6"
+                    android:layout_alignBottom="@+id/id_forecastIcon6"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="-19dp"
+                    android:layout_marginBottom="-10dp"
+                    android:fontFamily="@font/sourcesans"
+                    android:gravity="center"
+                    android:textColor="@color/city"
+                    android:textSize="120sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_main1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastIcon6"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:textAllCaps="false"
+                    android:textColor="#E8C661"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/id_weatherDetails1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_main1"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Humidity"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_humidity1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="94%"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Wind"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_wind1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="3 km/h"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Real Feel"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_realfeel1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout1_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_weatherDetails1"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay1_1"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Sun, Mar 26"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon1_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w04d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp1_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="28°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout1_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout1_1"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay1_2"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Mon, Mar 27"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon1_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp1_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="29°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout1_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout1_2"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay1_3"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Tue, Mar 28"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon1_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp1_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="31°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout1_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout1_3"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay1_4"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Wed, Mar 29"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon1_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp1_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout1_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout1_4"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay1_5"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Thur, Mar 30"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon1_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp1_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="16°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/id_forecastLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_forecastLayout6"
+            android:background="@color/backgroundweather"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_state2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:paddingRight="5dp"
+                    android:text="Gaya, In"
+                    android:textAllCaps="true"
+                    android:textColor="#DFB63C"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_today2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_state2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Today"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/id_forecastIcon7"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/id_state2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/w03d"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_degree2"
+                    android:layout_width="210dp"
+                    android:layout_height="152dp"
+                    android:layout_alignStart="@+id/id_forecastIcon7"
+                    android:layout_alignTop="@+id/id_forecastIcon7"
+                    android:layout_alignEnd="@+id/id_forecastIcon7"
+                    android:layout_alignBottom="@+id/id_forecastIcon7"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="-19dp"
+                    android:layout_marginBottom="-10dp"
+                    android:fontFamily="@font/sourcesans"
+                    android:gravity="center"
+                    android:textColor="@color/city"
+                    android:textSize="120sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_main2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastIcon7"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:textAllCaps="false"
+                    android:textColor="#E8C661"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/id_weatherDetails2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_main2"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Humidity"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_humidity2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="94%"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Wind"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_wind2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="3 km/h"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Real Feel"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_realfeel2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout2_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_weatherDetails2"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay2_1"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Sun, Mar 26"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon2_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w04d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp2_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="28°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout2_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout2_1"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay2_2"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Mon, Mar 27"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon2_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp2_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="29°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout2_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout2_2"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay2_3"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Tue, Mar 28"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon2_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp2_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="31°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout2_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout2_3"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay2_4"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Wed, Mar 29"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon2_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp2_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout2_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout2_4"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay2_5"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Thur, Mar 30"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon2_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp2_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="16°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_forecastLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_forecastLayout7"
+            android:background="@color/backgroundweather"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_state3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:paddingRight="5dp"
+                    android:text="Gaya, In"
+                    android:textAllCaps="true"
+                    android:textColor="#DFB63C"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_today3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_state3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Today"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/id_forecastIcon8"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/id_state3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/w03d"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_degree3"
+                    android:layout_width="210dp"
+                    android:layout_height="152dp"
+                    android:layout_alignStart="@+id/id_forecastIcon8"
+                    android:layout_alignTop="@+id/id_forecastIcon8"
+                    android:layout_alignEnd="@+id/id_forecastIcon8"
+                    android:layout_alignBottom="@+id/id_forecastIcon8"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="-19dp"
+                    android:layout_marginBottom="-10dp"
+                    android:fontFamily="@font/sourcesans"
+                    android:gravity="center"
+                    android:textColor="@color/city"
+                    android:textSize="120sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_main3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastIcon8"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:textAllCaps="false"
+                    android:textColor="#E8C661"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/id_weatherDetails3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_main3"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Humidity"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_humidity3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="94%"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Wind"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_wind3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="3 km/h"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Real Feel"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_realfeel3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout3_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_weatherDetails3"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay3_1"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Sun, Mar 26"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon3_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w04d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp3_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="28°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout3_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout3_1"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay3_2"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Mon, Mar 27"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon3_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp3_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="29°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout3_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout3_2"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay3_3"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Tue, Mar 28"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon3_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp3_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="31°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout3_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout3_3"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay3_4"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Wed, Mar 29"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon3_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp3_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout3_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout3_4"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay3_5"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Thur, Mar 30"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon3_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp3_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="16°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_forecastLayout9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_forecastLayout8"
+            android:background="@color/backgroundweather"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_state4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:paddingRight="5dp"
+                    android:text="Gaya, In"
+                    android:textAllCaps="true"
+                    android:textColor="#DFB63C"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_today4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_state4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Today"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/id_forecastIcon9"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/id_state4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/w03d"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_degree4"
+                    android:layout_width="210dp"
+                    android:layout_height="152dp"
+                    android:layout_alignStart="@+id/id_forecastIcon9"
+                    android:layout_alignTop="@+id/id_forecastIcon9"
+                    android:layout_alignEnd="@+id/id_forecastIcon9"
+                    android:layout_alignBottom="@+id/id_forecastIcon9"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="-19dp"
+                    android:layout_marginBottom="-10dp"
+                    android:fontFamily="@font/sourcesans"
+                    android:gravity="center"
+                    android:textColor="@color/city"
+                    android:textSize="120sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_main4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastIcon9"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:textAllCaps="false"
+                    android:textColor="#E8C661"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/id_weatherDetails4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_main4"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Humidity"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_humidity4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="94%"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Wind"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_wind4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="3 km/h"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Real Feel"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_realfeel4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout4_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_weatherDetails4"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay4_1"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Sun, Mar 26"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon4_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w04d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp4_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="28°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout4_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout4_1"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay4_2"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Mon, Mar 27"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon4_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp4_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="29°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout4_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout4_2"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay4_3"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Tue, Mar 28"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon4_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp4_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="31°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout4_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout4_3"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay4_4"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Wed, Mar 29"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon4_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp4_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout4_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout4_4"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay4_5"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Thur, Mar 30"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon4_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp4_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="16°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/id_forecastLayout10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_forecastLayout9"
+            android:background="@color/backgroundweather"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="3">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_state5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:paddingRight="5dp"
+                    android:text="Gaya, In"
+                    android:textAllCaps="true"
+                    android:textColor="#DFB63C"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_today5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/id_state5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/opensans"
+                    android:text="Today"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/id_forecastIcon10"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/id_state5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/w03d"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:id="@+id/id_degree5"
+                    android:layout_width="210dp"
+                    android:layout_height="152dp"
+                    android:layout_alignStart="@+id/id_forecastIcon10"
+                    android:layout_alignTop="@+id/id_forecastIcon10"
+                    android:layout_alignEnd="@+id/id_forecastIcon10"
+                    android:layout_alignBottom="@+id/id_forecastIcon10"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="-19dp"
+                    android:layout_marginBottom="-10dp"
+                    android:fontFamily="@font/sourcesans"
+                    android:gravity="center"
+                    android:textColor="@color/city"
+                    android:textSize="120sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/id_main5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastIcon10"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/helvatica"
+                    android:textAllCaps="false"
+                    android:textColor="#E8C661"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/id_weatherDetails5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_main5"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/background"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Humidity"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_humidity5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="94%"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Wind"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_wind5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="3 km/h"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="Real Feel"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/id_realfeel5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:fontFamily="@font/opensansbold"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout5_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_weatherDetails5"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay5_1"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Sun, Mar 26"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon5_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w04d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp5_1"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="28°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout5_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout5_1"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay5_2"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Mon, Mar 27"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon5_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp5_2"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="29°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout5_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout5_2"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay5_3"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Tue, Mar 28"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon5_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w01d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp5_3"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="31°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout5_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout5_3"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay5_4"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Wed, Mar 29"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon5_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp5_4"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="19°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_forecastLayout5_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_forecastLayout5_4"
+                    android:background="@color/backgroundweather"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_forecastDay5_5"
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="40dp"
+                            android:paddingTop="10dp"
+                            android:text="Thur, Mar 30"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/id_forecastIcon5_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/w11d" />
+
+
+                        <TextView
+                            android:id="@+id/id_forecastTemp5_5"
+                            android:layout_width="110dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/opensans"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="16°"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvResult2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans"
+            android:paddingLeft="40dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+</ScrollView>

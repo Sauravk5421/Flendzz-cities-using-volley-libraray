@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/font/font.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/activity_main.xml" value="0.11518324607329843" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/activity_main2.xml" value="0.10625" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/activity_splash.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/activity_weather_details.xml" value="0.1" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/activity_weather_details1.xml" value="0.1" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/layout/text_style.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/menu/menu_states.xml" value="0.21" />
+        <entry key="..\:/Users/Saurav kumar/Desktop/WeatherReport/app/src/main/res/menu/states_menu.xml" value="0.18" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
